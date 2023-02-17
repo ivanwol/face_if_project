@@ -1,7 +1,9 @@
 import telebot
 from telebot import TeleBot
+from main import token
 
-bot: TeleBot = telebot.TeleBot("6080146941:AAGHOsJu0QMvFnxaKRqk5YoIb-fy7Iu9hSE")
+
+bot: TeleBot = telebot.TeleBot(token)
 
 
 @bot.message_handler(commands=["change_photo"])
@@ -24,8 +26,6 @@ def handle_docs_document(message):
     with open(src, 'wb') as new_file:
         new_file.write(downloaded_file)
     bot.reply_to(message, "Снимката е добавена")
-
-
 
 
 bot.polling(none_stop=True)
